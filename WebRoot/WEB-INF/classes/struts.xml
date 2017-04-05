@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<!-- 禁用调用动态方法 -->
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<!-- 设置编码格式 -->
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<!-- 设置Struts2标签样式 -->
+	<constant name="struts.ui.theme" value="simple" />
+	<package name="default" namespace="/" extends="struts-default">
+		
+	</package>
+</struts>
