@@ -52,10 +52,15 @@ public class OrdersDaoImpl extends BaseHibernateDAO implements OrdersDao {
 	public Orders findById(Long id) {
 		Orders orders = null;
 		Session session = null;
-		String hql = "select distinct o from Orders o inner join fetch o.orderitems oi where o.id = :id";
+		StringBuilder hql = new StringBuilder();
+		hql.append("select 				distinct o ");
+		hql.append("from 				Orders o ");
+		hql.append("inner join fetch 	o.orderitems oi ");
+		hql.append("inner join fetch 	oi.goods g ");
+		hql.append("where 				o.id = :id");
 		try {
 			session = getSession();
-			orders = (Orders) session.createQuery(hql).setLong("id", id).uniqueResult();
+			orders = (Orders) session.createQuery(hql.toString()).setLong("id", id).uniqueResult();
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
